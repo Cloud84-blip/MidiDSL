@@ -4,6 +4,7 @@ import { Command } from 'commander';
 import { MidiLangLanguageMetaData } from '../language/generated/module.js';
 import { createMidiLangServices } from '../language/midi-lang-module.js';
 import { extractAstNode } from './cli-util.js';
+import { parseAndValidate } from './parseAndValidate.js';
 import { generateJavaScript } from './generator.js';
 import { NodeFileSystem } from 'langium/node';
 import * as url from 'node:url';
@@ -37,6 +38,12 @@ export default function(): void {
         .option('-d, --destination <dir>', 'destination directory of generating')
         .description('generates JavaScript code that prints "Hello, {name}!" for each greeting in a source file')
         .action(generateAction);
+    
+    program
+        .command('parseAndValidate')
+        .argument('<file>', `source file to parse & validate (ending in ${fileExtensions})`)
+        .description('Indicates where a program parses & validates successfully, but produces no output code')
+        .action(parseAndValidate);
 
     program.parse(process.argv);
 }
