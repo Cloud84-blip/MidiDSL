@@ -13,7 +13,8 @@ Bpm:
     'bpm' bpm=INT 'at' bpmMeasureTimes+=INT+;
 
 TimeMeasure:
-    'timeMeasure' TimeMeasure=Rational 'at' TimeMeasureTimes+=INT+;
+    'timeMeasure' timeMeasure=Rational 'at' timeMeasureTimes+=INT+;
+
 
 Track:
     'Track' name=ID 'instrument' INSTRUMENT
