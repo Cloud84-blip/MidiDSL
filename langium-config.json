@@ -1,0 +1,15 @@
+{
+    "projectName": "MidiLang",
+    "languages": [{
+        "id": "midi-lang",
+        "grammar": "src/language/midi-lang.langium",
+        "fileExtensions": [".mlang"],
+        "textMate": {
+            "out": "syntaxes/midi-lang.tmLanguage.json"
+        },
+        "monarch": {
+            "out": "syntaxes/midi-lang.monarch.ts"
+        }
+    }],
+    "out": "src/language/generated"
+}
