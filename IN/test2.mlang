@@ -1,17 +1,24 @@
-Music myComposition
-timeMeasure 4/4 at 1
-bpm 120 at 10 15 20 30 35
-bpm 140 at 40 50 60
-Track mainMelody instrument PIANO
-Enchainement verse:
-Measure 1
-C4 at 1/4 for 1/4 | D4 at 2/4 for 1/4 | E4 at 3/4 for 1/4 | F4 at 4/4 for 1/4
-Measure 2
-G4 at 1/4 for 1/4 | A4 at 2/4 for 1/4 | B4 at 3/4 for 1/4 | C5 at 4/4 for 1/4
-* 2
-Track rhythmSection instrument DRUMS
-Enchainement chorus:
-Measure 1
-D4 at 1/4 for 1/4 | E4 at 2/4 for 1/4
-Measure 2
-F4 at 1/4 for 1/4 | G4 at 2/4 for 1/4
+Music mySong
+    timeMeasure 4/4 at 1
+    bpm 120 at 1
+
+    Track melody instrument PIANO
+        Enchainement verse1:
+            Measure 1
+                C4 | D4 | E4 | F4
+            Measure 2
+                G4 | A4 | B4 | C5
+
+    Track melody2 instrument PIANO
+        Enchainement verse1:
+            Measure 1
+                C4 | D4 | E4 | F4
+            Measure 2
+                G4 | A4 | B4 | C5
+
+    Track rhythm instrument PIANO
+        Enchainement beat1:
+            Measure 1
+                C2 at 1/4 | C2 at 1/2 | C2 at 3/4 | C2 at 1
+            Measure 2
+                C2 at 1/4 | C2 at 1/2 | C2 at 3/4 | C2 at 1
