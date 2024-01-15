@@ -5,7 +5,7 @@ Music mySong
     Track melody instrument PIANO
         Enchainement verse1:
             Measure 1
-                C4 | D4 | E4 | F4
+                C4 bb | D4 | E4 | F4
             Measure 2
                 G4 | A4 | B4 | C5
 
@@ -17,8 +17,8 @@ Music mySong
                 G4 | A4 | B4 | C5
 
     Track rhythm instrument PIANO
-        Enchainement beat1:
+        Enchainement bbeat1:
             Measure 1
-                C2 at 1/4 | C2 at 1/2 | C2 at 3/4 | C2 at 1
+                C2 at 1/4 | C2 at 1/2 | C2 at 3/4 | C2 at 3/4
             Measure 2
-                C2 at 1/4 | C2 at 1/2 | C2 at 3/4 | C2 at 1
+                C2 at 1/4 | C2 at 1/2 | C2 at 3/4 | C2 at 3/4 for 1/4

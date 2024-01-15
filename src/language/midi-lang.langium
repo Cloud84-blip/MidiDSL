@@ -2,17 +2,14 @@ grammar MidiLang
 
 hidden terminal WS: /\s+/;
 terminal NOTE_OCTAVE: /[A-G][0-9]/;
-terminal ALTERATION: '##' | 'bb' | '#' | 'b';
+terminal ID: /[_a-zA-Z][\w]*/;
 terminal INT : /\d+/;
 
-terminal ID: /[_a-zA-Z][\w]*/;
 
 //hidden terminal ML_COMMENT: /\/\*[\s\S]*?\*\//;
 //hidden terminal SL_COMMENT: /\/\/[^\n\r]*/;
 
-entry Model: (elements+=Element)*;
-
-Element: Music;
+entry Model: Music;
 
 Music:
     'Music' name=ID
@@ -24,7 +21,7 @@ Bpm:
     ('bpm' bpm=INT 'at' bpmMeasureTimes+=INT+);
 
 TimeMeasure:
-    ('timeMeasure' timeMeasure=Rational 'at' timeMeasureTimes+=INT+);
+    ('timeMeasure' timeMeasure=RATIONAL 'at' timeMeasureTimes+=INT+);
 
 Track:
     ('Track' name=ID 'instrument' INSTRUMENT)
@@ -42,12 +39,16 @@ Line:
     (notes+=Note ('|' notes+=Note)*);
 
 Note:
-    ((timeMeasure=INT ':')? noteOctave=NOTE_OCTAVE (alteration=ALTERATION)?  ('at' position=Rational)? ('for' duration=Rational)?);
+    ((timeMeasure=INT ':')? noteOctave=NOTE_OCTAVE alteration=ALTERATION?  ('at' position=RATIONAL)? ('for' duration=DURATION)?);
 
-Rational:
-    (numerator=INT '/' denominator=INT);
+
+RATIONAL: (numerator=INT '/' denominator=INT);
 
 
 INSTRUMENT : value= 'DRUMS' | 'PIANO' | 'VIOLIN' | 'ALTO' | 'GUITAR' | 'HORN' | 
                'BASSOON' | 'CLARINET' | 'CORNAUSE' | 'CORNET' | 'TRUMPET' | 
                'FLUTE' | 'FRENCH_HORN' | 'TUBA' | 'UKULELE';
+
+ALTERATION: value = '##' | 'bb' | '#' | 'b';
+
+DURATION: value = INT | value=RATIONAL;
