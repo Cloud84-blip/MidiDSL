@@ -26,6 +26,17 @@ export type GenerateOptions = {
     destination?: string;
 }
 
+export const listMidiFiles = async (): Promise<void> => {
+    const midiDirectory = path.resolve(__dirname, '..', 'Midis');
+    try {
+        const files = await fs.readdir(midiDirectory);
+        const midiFiles = files.filter(file => path.extname(file) === '.mid');
+        console.log('MIDI Files:', midiFiles);
+    } catch (error) {
+        console.error('Error reading the Midis directory:', error);
+    }
+};
+
 export default function(): void {
     const program = new Command();
 
@@ -46,4 +57,9 @@ export default function(): void {
         .action(parseAndValidate);
 
     program.parse(process.argv);
+
+    program
+    .command('listMidi')
+    .description('List all MIDI files in the Midis directory')
+    .action(listMidiFiles);
 }
