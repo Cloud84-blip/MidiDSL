@@ -2,14 +2,14 @@ Music mySong
     timeMeasure 4/4 at 1
     bpm 120 at 1
 
-    Measure 1
-        C1# | D4 | E4 | F4
-        C4## | D4 | E4 | F4
+    Measure 1 :
+        C#1 | D4 | E4 | F4
+        C##4 | D4 | E4 | F4
     Measure 2
-        G4b | A4 | B4 | C5
+        Gbbb4 | A4 | B4 | C5
     
-    Enchainement 1
+    Sequence 1
         Measure 1 * 2
 
     Track 1 DRUMS
-        Enchainement 1
+        Sequence 1
