@@ -39,22 +39,14 @@ export async function extractAstNode<T extends AstNode>(fileName: string, servic
 }
 
 interface FilePathData {
-    destinationPath: string,
-    fileName: string
+    destination: string,
+    name: string
 }
 
-export function extractDestinationAndName(filePath: string, destination: string | undefined, extension: string): FilePathData {
-    // Extraire le nom de base du fichier, sans l'extension
-    const baseName = path.basename(filePath, path.extname(filePath));
-
-    // Construire le nom complet du fichier avec l'extension spécifiée
-    const fileName = `${baseName}${extension}`;
-
-    // Déterminer le chemin de destination
-    const destinationPath = destination ? path.resolve(destination) : path.dirname(filePath);
-
+export function extractDestinationAndName(filePath: string, destination: string | undefined): FilePathData {
+    filePath = path.basename(filePath, path.extname(filePath)).replace(/[.-]/g, '');
     return {
-        destinationPath,
-        fileName
+        destination: destination ?? path.join(path.dirname(filePath), 'generated'),
+        name: path.basename(filePath)
     };
 }
