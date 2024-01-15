@@ -2,23 +2,14 @@ Music mySong
     timeMeasure 4/4 at 1
     bpm 120 at 1
 
-    Track melody instrument PIANO
-        Enchainement verse1:
-            Measure 1
-                C4 bb | D4 | E4 | F4
-            Measure 2
-                G4 | A4 | B4 | C5
+    Measure 1
+        C1# | D4 | E4 | F4
+        C4## | D4 | E4 | F4
+    Measure 2
+        G4b | A4 | B4 | C5
+    
+    Enchainement 1
+        Measure 1 * 2
 
-    Track melody2 instrument PIANO
-        Enchainement verse1:
-            Measure 1
-                C4 | D4 | E4 | F4
-            Measure 2
-                G4 | A4 | B4 | C5
-
-    Track rhythm instrument PIANO
-        Enchainement bbeat1:
-            Measure 1
-                C2 at 1/4 | C2 at 1/2 | C2 at 3/4 | C2 at 3/4
-            Measure 2
-                C2 at 1/4 | C2 at 1/2 | C2 at 3/4 | C2 at 3/4 for 1/4
+    Track 1 DRUMS
+        Enchainement 1
