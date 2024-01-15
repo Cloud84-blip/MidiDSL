@@ -1,25 +1,30 @@
-import type { Model, Measure, Line, Note, Rational } from '../language/generated/ast.js';
+
+
+import type { Model, Measure, Line, Note, RATIONAL } from '../language/generated/ast.js';
+import { MidiWriter } from 'midi-writer-js';
 import * as fs from 'node:fs';
 import { CompositeGeneratorNode, NL, toString } from 'langium';
 import * as path from 'node:path';
 import { extractDestinationAndName } from './cli-util.js';
 
 export function generateJavaScript(model: Model, filePath: string, destination: string | undefined): string {
-    const { fileName, destinationPath } = extractDestinationAndName(filePath, destination, '.js');
+    const data = extractDestinationAndName(filePath, destination);
+    const generatedFilePath = `${path.join(data.destination, data.name)}.mid`;
     
     // Créer le nœud générateur
     const fileNode = new CompositeGeneratorNode();
     
     // Parcourir le modèle et générer du code JavaScript
-    model.measures.forEach(measure => generateMeasure(measure, fileNode));
+    //model.measures.forEach(measure => generateMeasure(measure, fileNode));
 
     // Écrire le résultat dans un fichier
-    const content = toString(fileNode);
-    const outputPath = path.join(destinationPath, fileName);
-    fs.writeFileSync(outputPath, content);
-    return outputPath;
+    //const content = toString(fileNode);
+    //const outputPath = path.join(destinationPath, fileName);
+    //fs.writeFileSync(outputPath, content);
+    //return outputPath;
+    return "";
 }
-
+/*
 function generateMeasure(measure: Measure, parentNode: CompositeGeneratorNode): void {
     parentNode.append(`// Mesure ${measure.number}`, NL);
     measure.lines.forEach(line => {
@@ -38,11 +43,11 @@ function generateLine(line: Line, parentNode: CompositeGeneratorNode): void {
 }
 
 function generateNote(note: Note, parentNode: CompositeGeneratorNode): void {
-    parentNode.append(`playNote('${note.id}', ${rationalToString(note.position)}, ${rationalToString(note.duration)});`);
+    //parentNode.append(`playNote('${note.id}', ${rationalToString(note.position)}, ${rationalToString(note.duration)});`);
 }
 
-function rationalToString(rational: Rational): string {
-    return `${rational.numerator}/${rational.denominator}`;
-}
-
+//function rationalToString(rational: Rational): string {
+//    return `${rational.numerator}/${rational.denominator}`;
+//}
+*/
 
