@@ -5,6 +5,7 @@ import * as path from 'node:path';
 import { extractDestinationAndName } from './cli-util.js';
 
 import MidiWriter from 'midi-writer-js';
+import { Reference } from 'langium';
 
 const initialBpm = 120;
 const ticksPerBeat = 48;
@@ -27,7 +28,7 @@ export function generateMidi(model: Model, filePath: string, destination: string
     // Start with a new track
     const track = new MidiWriter.Track();
     track.setTimeSignature(4, 4, 24, 8); // Default time signature
-
+    
     model.timeSignatures.forEach(ts => {
         ts.timeMeasureTimes.forEach(measureNumber => {
             const measureNumberString = measureNumber.toString();
@@ -100,19 +101,21 @@ function handleTrack(trackModel: MidiTrack, track: any) {
     // You'll need to handle the instrument change and sequence of measures here
     // For now, we'll assume a default instrument and add notes directly
 
-    trackModel.sequenceRefs.forEach((sequence : Sequence | any) => {
-        handleSequence(sequence.$ref, track);
+    trackModel.sequenceRefs.forEach(sequence => {
+        handleSequence(sequence, track);
     });
 }
 
-function handleSequence(sequence: Sequence, track: any) {
-    sequence.measureRefs.forEach((measureRef : Measure | any) => {
-        handleMeasure(measureRef.$ref, track);
+function handleSequence(sequence: Reference<Sequence>, track: any) {
+    sequence.ref?.measureRefs.forEach(measure => {
+        handleMeasure(measure, track);
     });
 }
 
-function handleMeasure(measure: Measure, track: any) {
-    measure.lines.forEach(line => {
+function handleMeasure(measure: Reference<Measure>, track: any) {
+    console.log(measure);
+
+    measure.ref?.lines.forEach(line => {
         line.notes.forEach(note => {
             handleNote(note, track);
         });

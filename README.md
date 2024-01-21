@@ -32,25 +32,25 @@ npm run langium:generate
 npm run build
 ```
 
-5. **Validate a `.ard` File**:
-To validate a `.ard` file using the DSL, use the command:
+5. **Validate a `.mlang` File**:
+To validate a `.mlang` file using the DSL, use the command:
 
 ```
 ./bin/cli.js parseAndValidate ./scenarios/{your_file}
 ```
 
-Replace `{your_file}` with the path to your `.ard` file.
+Replace `{your_file}` with the path to your `.mlang` file.
 
 6. **Generate Arduino Code**:
-To generate Arduino code from a `.ard` file, use the command:
+To generate Arduino code from a `.mlang` file, use the command:
 
 ```
 ./bin/cli.js generateArduinoCode ./scenarios/{your_file}
 ```
 
-Replace `{your_file}` with the path of your `.ard` file.
+Replace `{your_file}` with the path of your `.mlang` file.
 
-You can find the generated code in the [output](./output) folder.
+You can find the generated code in the [generated](./generated) folder.
 
 ## Basic Scenarios
 
