@@ -32,7 +32,9 @@ export function generateMidi(model: Model, filePath: string, destination: string
 
     // Set up a track list with a list of new Midi.Track objects
     model.tracks.forEach(t => {
-        tracks.push(new MidiWriter.Track());
+        let track = new MidiWriter.Track();
+        track.addEvent(new MidiWriter.ProgramChangeEvent({instrument: t.instrument}));
+        tracks.push(track);
     });
 
     timeSignatureNumerator = parseInt(model.timeSignatures[0].timeSignature.numerator);

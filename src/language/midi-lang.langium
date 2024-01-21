@@ -31,7 +31,7 @@ Sequence:
     ('Measure' measureRefs+=[Measure:ID_OR_INT] ('*' iterationsRefs+=ITERATION)?)+;
 
 MidiTrack:
-    'Track' name=ID_OR_INT 'instrument'? INSTRUMENT ':'?
+    'Track' name=ID_OR_INT 'instrument'? instrument=INSTRUMENT ':'?
     (('Sequence')? sequenceRefs+=[Sequence:ID_OR_INT])+;
 
 Line:
