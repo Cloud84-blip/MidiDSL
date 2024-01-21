@@ -1,9 +1,9 @@
 grammar MidiLang
 
 hidden terminal WS: /\s+/;
-terminal INT: /\d+/;
 terminal NOTE_OCTAVE: /[A-G](##|bb|#|b)?[0-9]/;
-terminal ID: /[_a-zA-Z][\w]*/;
+
+terminal ID_OR_INT: /[a-zA-Z0-9]+/;
 
 
 entry Model: Music;
@@ -17,10 +17,10 @@ Music:
     (tracks+=MidiTrack+);
 
 Bpm:
-    'bpm' bpm=INT ('at' bpmMeasureTimes+=INT+)?;
+    'bpm' bpm=ID_OR_INT ('at' bpmMeasureTimes+=ID_OR_INT+)?;
 
 TimeSignature:
-    'timeSignature' timeSignature=RATIONAL ('at' timeMeasureTimes+=INT+)?;
+    'timeSignature' timeSignature=RATIONAL ('at' timeMeasureTimes+=ID_OR_INT+)?;
 
 Measure:
     'Measure' name=ID_OR_INT ':'?
@@ -28,24 +28,22 @@ Measure:
 
 Sequence:
     'Sequence' name=ID_OR_INT ':'?
-    ('Measure' measureRefs+=[Measure] ('*' INT)?)+;
+    ('Measure' measureRefs+=[Measure:ID_OR_INT] ('*' ID_OR_INT)?)+;
 
 MidiTrack:
     'Track' name=ID_OR_INT 'instrument'? INSTRUMENT ':'?
-    ('Sequence' sequenceRefs+=[Sequence])+;
+    (('Sequence')? sequenceRefs+=[Sequence:ID_OR_INT])+;
 
 Line:
     (notes+=Note ('|' notes+=Note)*);
 
 Note:
-    ((timeMeasure=INT ':')? noteOctave=NOTE_OCTAVE  ('at' position=RATIONAL)? ('for' duration=DURATION)?);
+    ((timeMeasure=ID_OR_INT ':')? noteOctave=NOTE_OCTAVE  ('at' position=RATIONAL)? ('for' duration=DURATION)?);
 
-RATIONAL: numerator=INT '/' denominator=INT;
+RATIONAL: numerator=ID_OR_INT '/' denominator=ID_OR_INT;
 
 INSTRUMENT: value = 'DRUMS' | 'PIANO' | 'VIOLIN' | 'ALTO' | 'GUITAR' | 'HORN' | 
            'BASSOON' | 'CLARINET' | 'CORNAUSE' | 'CORNET' | 'TRUMPET' | 
            'FLUTE' | 'FRENCH_HORN' | 'TUBA' | 'UKULELE';
 
-DURATION: value= INT | value=RATIONAL;
-
-ID_OR_INT: value=ID | value=INT;
+DURATION: value= ID_OR_INT | value=RATIONAL;
