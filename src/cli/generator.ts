@@ -171,32 +171,3 @@ function mapDurationToTicks(numerator : number, denominator: number) {
     // Retourner la représentation de la durée pour getTickDuration
     return durationInQuarterNotes.toString();
 }
-
-
-//model.measures.forEach(measure => generateMeasure(measure, fileNode));
-/*
-function generateMeasure(measure: Measure, parentNode: CompositeGeneratorNode): void {
-    parentNode.append(`// Mesure ${measure.number}`, NL);
-    measure.lines.forEach(line => {
-        generateLine(line, parentNode);
-        parentNode.append(NL);
-    });
-}
-
-function generateLine(line: Line, parentNode: CompositeGeneratorNode): void {
-    line.notes.forEach((note, index) => {
-        if (index > 0) {
-            parentNode.append(' | ');
-        }
-        generateNote(note, parentNode);
-    });
-}
-
-function generateNote(note: Note, parentNode: CompositeGeneratorNode): void {
-    //parentNode.append(`playNote('${note.id}', ${rationalToString(note.position)}, ${rationalToString(note.duration)});`);
-}
-
-//function rationalToString(rational: Rational): string {
-//    return `${rational.numerator}/${rational.denominator}`;
-//}
-*/
