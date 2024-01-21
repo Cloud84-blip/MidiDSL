@@ -3,6 +3,10 @@
 This DSL allowi the description of a music piece, which we see as a set of tracks evolving on time.
 This README provides instructions on how to generate and validate Arduino code using this DSL.
 
+## BNF
+
+You can find the BNF of the DSL here: [BNF](./src/language/midi-lang.langium)
+
 ## Getting Started
 
 To get started with Arduino-Langium DSL, you need to run the following commands:
