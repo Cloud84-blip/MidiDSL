@@ -10,17 +10,17 @@ entry Model: Music;
 
 Music:
     'Music' name=ID_OR_INT (':')?
-    (timeMeasures+=TimeMeasure+)
+    (timeSignatures+=TimeSignature+)
     (bpms+=Bpm+)
     (measures+=Measure+)
     (sequences+=Sequence+)
-    (tracks+=Track+);
+    (tracks+=MidiTrack+);
 
 Bpm:
-    'bpm' bpm=INT 'at' bpmMeasureTimes+=INT+;
+    'bpm' bpm=INT ('at' bpmMeasureTimes+=INT+)?;
 
-TimeMeasure:
-    'timeMeasure' timeMeasure=RATIONAL 'at' timeMeasureTimes+=INT+;
+TimeSignature:
+    'timeSignature' timeSignature=RATIONAL ('at' timeMeasureTimes+=INT+)?;
 
 Measure:
     'Measure' name=ID_OR_INT ':'?
@@ -30,7 +30,7 @@ Sequence:
     'Sequence' name=ID_OR_INT ':'?
     ('Measure' measureRefs+=[Measure] ('*' INT)?)+;
 
-Track:
+MidiTrack:
     'Track' name=ID_OR_INT 'instrument'? INSTRUMENT ':'?
     ('Sequence' sequenceRefs+=[Sequence])+;
 
