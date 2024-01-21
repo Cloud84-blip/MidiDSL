@@ -38,14 +38,12 @@ Line:
     (notes+=Note ('|' notes+=Note)*);
 
 Note:
-    ((timeMeasure=ID_OR_INT ':')? noteOctave=NOTE_OCTAVE  ('at' position=RATIONAL)? ('for' duration=DURATION)?);
+    ((timeMeasure=ID_OR_INT ':')? noteOctave=NOTE_OCTAVE  ('at' position=RATIONAL)? ('for' numerator=ID_OR_INT '/' denominator=ID_OR_INT)?);
 
 RATIONAL: numerator=ID_OR_INT '/' denominator=ID_OR_INT;
 
 INSTRUMENT: value = 'DRUMS' | 'PIANO' | 'VIOLIN' | 'ALTO' | 'GUITAR' | 'HORN' | 
            'BASSOON' | 'CLARINET' | 'CORNAUSE' | 'CORNET' | 'TRUMPET' | 
            'FLUTE' | 'FRENCH_HORN' | 'TUBA' | 'UKULELE';
-
-DURATION: value= ID_OR_INT | value=RATIONAL;
 
 ITERATION: value= ID_OR_INT;

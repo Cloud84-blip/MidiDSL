@@ -1,5 +1,28 @@
-Mesure 1:
-    A1 : at 1/4 for 1 | A2:  at 1/2 for 3/2 
-    A1 : at 1/4 for 2 | A2: at 1/2 for 3/2
-    A1 : at 1/4 for 1 | A2: at 1/2 for 3/2 
-    A1 : at 1/4 for 1 | A2: at 1/2 for 3/2
+Music mySong
+    timeSignature 4/4
+    bpm 120
+
+    Measure 1 :
+        C#1 | D4 | E4 | F4
+        C#1 | D4 | E4 | F4
+        C#1 | D4 | E4 | F4
+        C#1 | D4 | E4 | F4
+    Measure 2
+        C#4 | D4 | E4 | F4
+        C#4 | D4 | E4 | F4
+        C#4 | D4 | E4 | F4
+        C#4 | D4 | E4 | F4
+    
+    Sequence 1
+        Measure 1 * 1
+        Measure 2 * 2
+
+    Sequence 2
+        Measure 2 * 3
+        Measure 2 * 4
+
+    Track 1 DRUMS
+        Sequence 1
+
+    Track 2 DRUMS
+        Sequence 2

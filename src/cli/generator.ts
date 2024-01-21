@@ -22,6 +22,10 @@ let timeline: { [measureNumber: string]: TimelineElement } = {};
 let currentBpm = initialBpm;
 let currentBeatsPerMeasure = 4; // Signature rythmique initiale (ex. 4/4)
 
+let timeSignatureNumerator = 4;
+let timeSignatureDenominator = 4;
+
+
 export function generateMidi(model: Model, filePath: string, destination: string | undefined): string {
     const data = extractDestinationAndName(filePath, destination);
     const generatedFilePath = `${path.join(data.destination, data.name)}.mid`;
@@ -31,9 +35,10 @@ export function generateMidi(model: Model, filePath: string, destination: string
         tracks.push(new MidiWriter.Track());
     });
 
-    const timeSignature = model.timeSignatures[0].timeSignature; // for simplicity, we assume there is only one time signature in the generator for now
+    timeSignatureNumerator = parseInt(model.timeSignatures[0].timeSignature.numerator);
+    timeSignatureDenominator = parseInt(model.timeSignatures[0].timeSignature.denominator);
     tracks.forEach(track => {
-        track.setTimeSignature(parseInt(timeSignature.numerator), parseInt(timeSignature.denominator), 24, 8);
+        track.setTimeSignature(timeSignatureNumerator, timeSignatureDenominator, 24, 8);
     });
     
     
@@ -87,7 +92,6 @@ export function generateMidi(model: Model, filePath: string, destination: string
 
     // Write the MIDI file
     const write = new MidiWriter.Writer(tracks);
-
     // Génération et écriture du fichier MIDI
     fs.writeFileSync(generatedFilePath, write.buildFile());
 
@@ -122,7 +126,6 @@ function handleSequence(sequence: Reference<Sequence>, track: any) {
         if(sequence.ref?.iterationsRefs[index] === undefined) numberOfIterations = 1;
         else numberOfIterations = Number(sequence.ref?.iterationsRefs[index].value);
         if (isNaN(numberOfIterations)) numberOfIterations = 1;
-        console.log(measure.ref?.name);
         handleMeasure(measure, track,numberOfIterations);
     });
 }
@@ -136,7 +139,6 @@ function handleMeasure(measure: Reference<Measure>, track: any,numberOfIteration
         });
     }
 }
-
 function handleNote(note: Note, track: any) {
     let tick;
     if(note.timeMeasure === undefined){
@@ -145,8 +147,27 @@ function handleNote(note: Note, track: any) {
         let timeMeasure = Number(note.timeMeasure);
         tick = calculateTick(timeMeasure, currentBeatsPerMeasure, ticksPerBeat);
     }
-    let midiNote = new MidiWriter.NoteEvent({ startTick : tick, pitch: [note.noteOctave], duration: note.duration?.value });
+    let midiNote;
+    if(!(note.numerator === undefined || note.denominator === undefined)){
+        const duration = mapDurationToTicks(Number(note.numerator), Number(note.denominator));
+        midiNote = new MidiWriter.NoteEvent({ startTick : tick, pitch: [note.noteOctave], duration: duration });
+    }else{
+        midiNote = new MidiWriter.NoteEvent({ startTick : tick, pitch: [note.noteOctave]});
+    }
     track.addEvent(midiNote);
+}
+
+function mapDurationToTicks(numerator : number, denominator: number) {
+    // Durée d'une noire en mesure standard (4/4)
+    const quarterNoteDuration = timeSignatureNumerator / timeSignatureDenominator * 4;
+
+    // Calculer la durée réelle en fonction de la signature rythmique
+    const durationInQuarterNotes = (numerator / denominator) * quarterNoteDuration;
+
+    if(durationInQuarterNotes === 6) return 't720';
+
+    // Retourner la représentation de la durée pour getTickDuration
+    return durationInQuarterNotes.toString();
 }
 
 
