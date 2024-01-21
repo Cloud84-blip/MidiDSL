@@ -96,7 +96,7 @@ function calculateTick(measureNumber : number, beatsPerMeasure : number, ticksPe
     return totalBeats * ticksPerBeat;
 }
 
-function handleTrack(trackModel: MidiTrack, track: MidiWriter.Track) {
+function handleTrack(trackModel: MidiTrack, track: any) {
     // You'll need to handle the instrument change and sequence of measures here
     // For now, we'll assume a default instrument and add notes directly
 
@@ -105,13 +105,13 @@ function handleTrack(trackModel: MidiTrack, track: MidiWriter.Track) {
     });
 }
 
-function handleSequence(sequence: Sequence, track: MidiWriter.Track) {
+function handleSequence(sequence: Sequence, track: any) {
     sequence.measureRefs.forEach((measureRef : Measure | any) => {
         handleMeasure(measureRef.$ref, track);
     });
 }
 
-function handleMeasure(measure: Measure, track: MidiWriter.Track) {
+function handleMeasure(measure: Measure, track: any) {
     measure.lines.forEach(line => {
         line.notes.forEach(note => {
             handleNote(note, track);
@@ -119,7 +119,7 @@ function handleMeasure(measure: Measure, track: MidiWriter.Track) {
     });
 }
 
-function handleNote(note: Note, track: MidiWriter.Track) {
+function handleNote(note: Note, track: any) {
     let tick;
     if(note.timeMeasure === undefined){
         tick = 0; //need to define the right one
