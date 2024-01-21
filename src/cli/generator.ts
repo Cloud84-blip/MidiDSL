@@ -119,7 +119,8 @@ function handleTrack(trackModel: MidiTrack, track: any) {
 function handleSequence(sequence: Reference<Sequence>, track: any) {
     let numberOfIterations;
     sequence.ref?.measureRefs.forEach((measure, index) => {
-        numberOfIterations = Number(sequence.ref?.iterationsRefs[index].value);
+        if(sequence.ref?.iterationsRefs[index] === undefined) numberOfIterations = 1;
+        else numberOfIterations = Number(sequence.ref?.iterationsRefs[index].value);
         if (isNaN(numberOfIterations)) numberOfIterations = 1;
         console.log(measure.ref?.name);
         handleMeasure(measure, track,numberOfIterations);
