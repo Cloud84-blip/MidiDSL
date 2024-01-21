@@ -54,7 +54,9 @@ To generate MIDI from a `.mlang` file, use the command:
 
 Replace `{your_file}` with the path of your `.mlang` file.
 
-You can find the generated code in the [generated](./generated) folder.
+You can find the generated code in the [generated](./generated) folder.  
+
+The scenario files are located in the [scenarios](./scenarios) folder.
 
 ## Note on Instrument Names in BNF and Generated MIDI Files
 
