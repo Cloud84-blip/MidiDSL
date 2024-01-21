@@ -9,6 +9,7 @@ import { Reference } from 'langium';
 
 const initialBpm = 120;
 const ticksPerBeat = 48;
+const tracks: any[] = [];
 
 // Définir un type pour les éléments de la timeline
 interface TimelineElement {
@@ -24,10 +25,17 @@ let currentBeatsPerMeasure = 4; // Signature rythmique initiale (ex. 4/4)
 export function generateMidi(model: Model, filePath: string, destination: string | undefined): string {
     const data = extractDestinationAndName(filePath, destination);
     const generatedFilePath = `${path.join(data.destination, data.name)}.mid`;
-    // Create a new track
-    // Start with a new track
-    const track = new MidiWriter.Track();
-    track.setTimeSignature(4, 4, 24, 8); // Default time signature
+
+    // Set up a track list with a list of new Midi.Track objects
+    model.tracks.forEach(t => {
+        tracks.push(new MidiWriter.Track());
+    });
+
+    const timeSignature = model.timeSignatures[0].timeSignature; // for simplicity, we assume there is only one time signature in the generator for now
+    tracks.forEach(track => {
+        track.setTimeSignature(parseInt(timeSignature.numerator), parseInt(timeSignature.denominator), 24, 8);
+    });
+    
     
     model.timeSignatures.forEach(ts => {
         ts.timeMeasureTimes.forEach(measureNumber => {
@@ -38,6 +46,7 @@ export function generateMidi(model: Model, filePath: string, destination: string
         });
     });
     
+
     model.bpms.forEach(bpm => {
         bpm.bpmMeasureTimes.forEach(measureNumber => {
             const measureNumberString = measureNumber.toString();
@@ -65,17 +74,21 @@ export function generateMidi(model: Model, filePath: string, destination: string
         let tick = calculateTick(Number(measureNumber), measureInfo.timeSignature ?? 4, ticksPerBeat);
 
         //track.addEvent(new TempoEvent({ bpm: measureInfo.bpm ?? 120, tick: tick }));
-        track.setTempo(measureInfo.bpm ?? 120, tick);
+        tracks.forEach(track => {
+            track.setTempo(measureInfo.bpm ?? 120, tick);
+        });
         // Générer un événement de changement de signature rythmique si nécessaire
     });
 
     // Handle each track in the model
-    model.tracks.forEach(t => {
-        handleTrack(t, track);
+    model.tracks.forEach((t,index) => {
+        handleTrack(t, tracks[index]);
     });
 
     // Write the MIDI file
-    let write = new MidiWriter.Writer(track);
+    const write = new MidiWriter.Writer(tracks);
+
+    // Génération et écriture du fichier MIDI
     fs.writeFileSync(generatedFilePath, write.buildFile());
 
     return generatedFilePath;
@@ -98,34 +111,35 @@ function calculateTick(measureNumber : number, beatsPerMeasure : number, ticksPe
 }
 
 function handleTrack(trackModel: MidiTrack, track: any) {
-    // You'll need to handle the instrument change and sequence of measures here
-    // For now, we'll assume a default instrument and add notes directly
-
     trackModel.sequenceRefs.forEach(sequence => {
         handleSequence(sequence, track);
     });
 }
 
 function handleSequence(sequence: Reference<Sequence>, track: any) {
-    sequence.ref?.measureRefs.forEach(measure => {
-        handleMeasure(measure, track);
+    let numberOfIterations;
+    sequence.ref?.measureRefs.forEach((measure, index) => {
+        numberOfIterations = Number(sequence.ref?.iterationsRefs[index].value);
+        if (isNaN(numberOfIterations)) numberOfIterations = 1;
+        console.log(measure.ref?.name);
+        handleMeasure(measure, track,numberOfIterations);
     });
 }
 
-function handleMeasure(measure: Reference<Measure>, track: any) {
-    console.log(measure);
-
-    measure.ref?.lines.forEach(line => {
-        line.notes.forEach(note => {
-            handleNote(note, track);
+function handleMeasure(measure: Reference<Measure>, track: any,numberOfIterations : number) {
+    for (let i = 0; i < numberOfIterations; i++) {
+        measure.ref?.lines.forEach(line => {
+            line.notes.forEach(note => {
+                handleNote(note, track);
+            });
         });
-    });
+    }
 }
 
 function handleNote(note: Note, track: any) {
     let tick;
     if(note.timeMeasure === undefined){
-        tick = 0; //need to define the right one
+        tick = 0; //DUNNO if this is correct
     } else{
         let timeMeasure = Number(note.timeMeasure);
         tick = calculateTick(timeMeasure, currentBeatsPerMeasure, ticksPerBeat);

@@ -28,7 +28,7 @@ Measure:
 
 Sequence:
     'Sequence' name=ID_OR_INT ':'?
-    ('Measure' measureRefs+=[Measure:ID_OR_INT] ('*' ID_OR_INT)?)+;
+    ('Measure' measureRefs+=[Measure:ID_OR_INT] ('*' iterationsRefs+=ITERATION)?)+;
 
 MidiTrack:
     'Track' name=ID_OR_INT 'instrument'? INSTRUMENT ':'?
@@ -47,3 +47,5 @@ INSTRUMENT: value = 'DRUMS' | 'PIANO' | 'VIOLIN' | 'ALTO' | 'GUITAR' | 'HORN' |
            'FLUTE' | 'FRENCH_HORN' | 'TUBA' | 'UKULELE';
 
 DURATION: value= ID_OR_INT | value=RATIONAL;
+
+ITERATION: value= ID_OR_INT;
