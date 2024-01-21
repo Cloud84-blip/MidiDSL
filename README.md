@@ -52,13 +52,19 @@ Replace `{your_file}` with the path of your `.mlang` file.
 
 You can find the generated code in the [generated](./generated) folder.
 
+## Note on BPM and Time Signature in Generated MIDI Files
+
+The current version of the Arduino-Langium DSL allows for specifying BPM (beats per minute) and time signature at any desired measure in the .mlang files. However, the current MIDI file generator applies only the first BPM value and the first time signature value to the entire MIDI file. We plan to enhance this feature in future updates to allow different BPMs and time signatures at specified measures throughout the MIDI file.
+
 ## Basic Scenarios
 
-The DSL comes withthe two basic scenario located in the [scenarios](./scenarios) folder.
+The DSL comes withthe two basic scenario and one ultra-basic test located in the [scenarios](./scenarios) folder.
 
 [1. **Billie jean**]
 
-[2. **Love is all**]  
+[2. **Love is all**]
+
+[3. **Test**]
   
 
 ## Authors
