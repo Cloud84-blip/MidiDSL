@@ -1,12 +1,16 @@
 Music mySong
-    timeMeasure 4/4 at 1
-    bpm 120 at 1
+    timeSignature 4/4 at 1
+    bpm 120 
 
     Measure 1 :
         C#1 | D4 | E4 | F4
         C##4 | D4 | E4 | F4
+        C#4 | D4 | E4 | F4
+        C#4 | D4 | E4 | F4
     Measure 2
-        Gbbb4 | A4 | B4 | C5
+        C#4 | D4 | E4 | F4
+        C#4 | D4 | E4 | F4
+        C#4 | D4 | E4 | F4
     
     Sequence 1
         Measure 1 * 2
