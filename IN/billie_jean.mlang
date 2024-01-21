@@ -1,113 +1,100 @@
-Mesure [1] : 4/4 
+Music billiejean
+    timeMeasure 4/4 at 1
+    bpm 118 at 1
 
-RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
+    Measure 1 :
+        RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
+        RIDE at 0 for 1/2, RIDE at ½ for 1/2, SNARE for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for 1/2, SNARE for ½ 
 
-RIDE at 0 for 1/2, RIDE at ½ for 1/2, SNARE for 1/2 
+    Measure 2 : 4/4 
+        RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
+        RIDE at 0 for 1/2, RIDE at ½ for 1/2, SNARE for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for 1/2 
+        RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, SNARE for ½ 
 
-RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for 1/2 
+    Measure 3 : 4/4 
+        RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
+        RIDE at 0 for 1/2, OPEN HIT HAT at ½ for 1/2, SNARE for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for 1/2 
+        RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, SNARE for ½ 
 
-RIDE at 0 for ½, RIDE at ½ for 1/2, SNARE for ½ 
+    Measure 4 : 4/4 
+        RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2, RIGHT BASS at ½ for 1/2 
+        RIDE at 0 for ½, OPEN HIT HAT at ½ for ½, SNARE for 1/2, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
+        RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, SNARE for ½, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
 
- 
+    Measure 5 : 4/4 
+        CRASH at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
+        RIDE at 0 for 1/2, RIDE at ½ for 1/2, SNARE for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for 1/2, SNARE for ½ 
 
-Mesure [2] : 4/4 
+    Measure 6 : 4/4 
+        RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
+        RIDE at 0 for 1/2, RIDE at ½ for 1/2, SNARE for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for ¼, TOM4 at ¼ for ¼, RIGHT BASS for 1/2 
+        RIDE at 0 for ½, RIDE at ½ for 1/2, SNARE for ½, TOM5 for ½  
 
-RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
+    Measure 7 : 4/4 
+        RIDE at 0 for 1/2, OPEN HIT HAT at ½ for ½, RIGHT BASS for 1/2, RIGHT BASS at ½ for 1/2 
+        RIDE at 0 for ½, OPEN HIT HAT at ½ for ½, SNARE for 1/2, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
+        RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
+        RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, SNARE for ½, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
 
-RIDE at 0 for 1/2, RIDE at ½ for 1/2, SNARE for 1/2 
+    Sequence Intro : 
+        Measure 1 * 14 
 
-RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for 1/2 
+    Sequence Verse : 
+        Measure 1 * 19
+        Measure 2 * 1 
 
-RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, SNARE for ½ 
+    Sequence Bridge1 : 
+        (Measure 1, Measure 2) * 3
+        Measure 3
+        Measure 4 
 
- 
+    Sequence Chorus1 : 
+        Measure 5
+        Measure 6
+        Measure 1 *9
+        Measure 2 
 
-Mesure [3] : 4/4 
+    Sequence Bridge2 :
+        (Measure 1, Measure 2) * 3
+        Measure 3
+        Measure 7 
 
-RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
+    Sequence Chorus2 : 
+        Measure 5
+        Measure 6
+        Measure 1 *7
+        Measure 5
+        Measure 6
+        Measure 1 *10 
 
-RIDE at 0 for 1/2, OPEN HIT HAT at ½ for 1/2, SNARE for 1/2 
+    Sequence Interlude :
+        Measure 1 *7
+        Measure 2
+        Measure 1 *4 
 
-RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for 1/2 
+    Sequence Outro : 
+        Measure 1 *14 
 
-RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, SNARE for ½ 
+    Sequence Fade Out : 
+        Measure 1 *4 
 
- 
-
-Mesure [4] : 4/4 
-
-RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2, RIGHT BASS at ½ for 1/2 
-
-RIDE at 0 for ½, OPEN HIT HAT at ½ for ½, SNARE for 1/2, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
-
-RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
-
-RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, SNARE for ½, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
-
- 
-
-Mesure [5] : 4/4 
-
-CRASH at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
-
-RIDE at 0 for 1/2, RIDE at ½ for 1/2, SNARE for 1/2 
-
-RIDE at 0 for ½, RIDE at ½ for 1/2, RIGHT BASS for 1/2 
-
-RIDE at 0 for ½, RIDE at ½ for 1/2, SNARE for ½ 
-
- 
-
-Mesure [6] : 4/4 
-
-RIDE at 0 for 1/2, RIDE at ½ for ½, RIGHT BASS for 1/2 
-
-RIDE at 0 for 1/2, RIDE at ½ for 1/2, SNARE for 1/2 
-
-RIDE at 0 for ½, RIDE at ½ for ¼, TOM4 at ¼ for ¼, RIGHT BASS for 1/2 
-
-RIDE at 0 for ½, RIDE at ½ for 1/2, SNARE for ½, TOM5 for ½  
-
- 
-
-Mesure [7] : 4/4 
-
-RIDE at 0 for 1/2, OPEN HIT HAT at ½ for ½, RIGHT BASS for 1/2, RIGHT BASS at ½ for 1/2 
-
-RIDE at 0 for ½, OPEN HIT HAT at ½ for ½, SNARE for 1/2, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
-
-RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
-
-RIDE at 0 for ½, OPEN HIT HAT at ½ for 1/2, SNARE for ½, RIGHT BASS for ½, RIGHT BASS at ½ for 1/2 
-
- 
-
- 
-
- 
-
-Intro : Mesure [1] * 14 
-
-Verse : Mesure [1] * 19, Mesure [2] * 1 
-
-Bridge1 : (Mesure [1], Mesure [2]) * 3, Mesure [3], Mesure [4] 
-
-Chorus1 : Mesure [5], Mesure [6], Mesure [1] *9, Mesure [2] 
-
-Bridge2 : (Mesure [1], Mesure [2]) * 3, Mesure [3], Mesure [7] 
-
-Chorus2 : Mesure [5], Mesure [6], Mesure [1] *7, Mesure [5], Mesure [6], Mesure [1] *10 
-
-Interlude : Mesure [1] *7, Mesure [2], Mesure [1] *4 
-
-Outro : Mesure [1] *14 
-
-Fade Out : Mesure [1] *4 
-
- 
-
-Track 1 :  
-
-“Billie Jean”, 4/4, 118, drums,  
-
-Intro, Verse, Bridge1, Chorus1, Verse, Bridge2, Chorus2, Interlude, Chorus1, Outro, Fade Out 
+    Track 1 DRUMS:  
+        Intro
+        Verse
+        Bridge1
+        Chorus1
+        Verse
+        Bridge2
+        Chorus2
+        Interlude
+        Chorus1
+        Outro
+        Fade Out 

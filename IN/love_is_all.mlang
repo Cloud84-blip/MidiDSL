@@ -1,0 +1,135 @@
+Music loveIsAll
+    timeMeasure 4/4 at 1, 65
+    timeMeasure 3/4 at 50
+    bpm 110 at 1, 62
+    bpm 75 at 50
+    bpm 70 at 51
+    bpm 54 at 85
+    bpm 100 at 100
+
+    Measure 1 : 4/4 
+        3 : C5 at 0 for 1 
+
+    Measure 2 :  
+        G5 
+        G5 
+        G5 
+        G5 
+
+    Measure 3 :  
+        C5 at 0 for ½ | C5 at ½ for ½ | G5 for ½  
+        C5 at 0 for ½ | C5 at ½ for ½  
+        C5 at 0 for ½ | C5 at ½ for ½  
+        C5 at 0 for ½ | C5 at ½ for ½ 
+
+    Measure 4 : 
+        0 : A6 | C5 
+        2 : C5 | F5 
+
+    Measure 5 :  
+        G5 | E4 
+        G5 | C5 
+        G5 | E4 
+        G5 | C5 
+
+    Measure 6 :  
+        G5 | E4 
+        G5 | C5 
+        E4 for 1/3 | C5 for 1/3 | C5 at 1/3 for 1/3 | C5 at 2/3 for 1/3 
+        E4 for 1/3 | C5 for 1/3 | C5 at 1/3 for 1/3 | C5 at 2/3 for 1/3 | D5 for 1/3 | D5 at 1/3 for 1/3 | D5 at 2/3 for 1/3 
+
+    Measure 7 : 
+        E4 for 1/3 | C5 for 1/3 | C5 at 1/3 for 1/3 | C5 at 2/3 for 1/3 
+        E4 for 1/3 | C5 for 1/3 | C5 at 1/3 for 1/3 | C5 at 2/3 for 1/3 
+        E4 for 1/3 | D5 for 1/3 | D5 at 1/3 for 1/3 | D5 at 2/3 for 1/3 
+        E4 for 1/3 | A5 for 1/3 | A5 at 1/3 for 1/3 | A5 at 2/3 for 1/3 
+
+    
+
+    Measure 8 : 
+        E4 | A6 
+        E4 | G5 | C5 
+        E4 | G5 
+        E4 | G5 | C5 
+
+    Measure 9 : 
+        E4 | A6 
+        C5 | G5 
+        E4 for ½ | C5 for 1/2 | C5 at ½ for ½ | A6 for 1/2
+        E4 for ½ | C5 for 1/2 | C5 at ½ for 1/2 
+
+    Measure 10 : 
+        E4 | A6 
+        G5 | C5 
+        E4 | G5 
+        G5 | C5 
+
+    Measure 11 : 
+        A6 | E4 for 1/3 | C5 at 1/3 for 1/3 | C5 at 2/3 for 1/3 
+        E4 for 1/3 | C5 for 1/3 | C5 at 1/3 for 1/3 | C5 at 2/3 for 1/3 
+        G5 | E4 for 1/3 | D5 at 1/3 for 1/3 | D5 at 2/3 for 1/3 
+        E4 for 1/3 | A5 for 1/3 | A5 at 1/3 for 1/3 | A5 at 2/3 for 1/3 
+
+    Measure 12 : ¾ 
+        0 : F5 | E4 
+        1 : F5 for ½ | F5 at ½ | E4 at ½ 
+        3 : F5 at ½ for ½ 
+
+    Measure 13 : ¾ 
+        0 : F5 | E4 
+        1 : F5 for ½ | C5 for ½ | F5 at ½ | E4 at ½ 
+        3 : F5 at ½ for ½ | C5 at ½ for ½ 
+
+    Measure 14 : 4/4 
+        0 : C5 for 2/3 | E4 for 2/3 | C5 at 2/3 for 1/3 
+        1 : C5 for 2/3 | E4 for 2/3 | C5 at 2/3 for 1/3 
+        2 : C5 for 1/2 | E4 for ½ | C5 at ½ for 3/2 | A6 at ½ for 3/2 
+    
+    Sequence Intro : 
+        Measure 1
+        Measure 2 *2
+        Measure 3
+        Measure 4 
+
+    Sequence Couplet1 : 
+        Measure 5 * 7
+        Measure 6 
+
+    Sequence Couplet2 : 
+        Measure 5 * 7
+        Measure 7 
+
+    Sequence Refrain : 
+        Measure 8 * 3
+        Measure 6
+        Measure 8 *3
+        Measure 9 
+
+    Sequence Intro2 : 
+        Measure 10
+        Measure 5*2
+        Measure 4 
+
+    Sequence Couplet3 : 
+        Measure 5*7
+        Measure 11 
+
+    Sequence Bridge : 
+        Measure 12 *12
+        Measure 13*3
+        Measure 14 
+
+    
+
+    Track 1 DRUMS 
+        Intro
+        Couplet1
+        Couplet2
+        Refrain
+        Intro2
+        Couplet3
+        Refrain
+        Bridge 
+        Couplet3
+        Refrain
+        Refrain 
